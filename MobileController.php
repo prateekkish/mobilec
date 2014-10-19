@@ -4,7 +4,7 @@ class MobileController extends \BaseController
 {
    public function getid()
 	{
-
+hello
              try
 		
 	{
@@ -20,7 +20,7 @@ class MobileController extends \BaseController
  
 	}
             return $name;
-        halluuuuuu
+
 
 	}
 
