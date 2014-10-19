@@ -4,7 +4,6 @@ class MobileController extends \BaseController
 {
    public function getid()
 	{
-hello
              try
 		
 	{
@@ -52,7 +51,7 @@ hello
            {
                  $arr=Array("ok"=>"not activated");
 
-                   return json_encode($content);
+                   return json_encode($arr);
 
            }
        }
@@ -126,6 +125,24 @@ catch(Exception $e)
        return json_encode($content);
 
     }
+
+    public function fblogin()
+    {
+        $users = User::all();
+        foreach($users as $user)
+        {
+            if($user->fbid == Input::get('fbid'))
+            {
+
+                $credentials = array('ok'=>'true','id'=>$user->id,'first_name' => $user->first_name,'last_name' => $user->last_name);
+                    return json_encode($credentials);
+            }
+        }
+        $credentials = array('ok'=>'false','id'=>null,'first_name' => null,'last_name' => null);
+        return json_encode($credentials);
+
+    }
+
 
 
 
